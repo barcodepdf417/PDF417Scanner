@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scanner_activity">Barcode (pdf417) scanner</string>
+    <string name="choose_formats">Choose Formats</string>
+</resources>

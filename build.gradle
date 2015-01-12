@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+    }
+}
+
+allprojects {
+    group = 'com.barcode.pdf417'
+    version = '1.0'
+
+    repositories {
+        jcenter()
+    }
+
+    ext {
+        supportLibraryDependency = 'com.android.support:support-v4:21.0.3'
+        isLibrary = false
+    }
+}
+
+subprojects {
+    afterEvaluate { Project project ->
+        ext.pluginContainer = project.getPlugins()
+        if(ext.pluginContainer.hasPlugin("android") || ext.pluginContainer.hasPlugin("android-library")) {
+            android {
+                compileSdkVersion 21
+                buildToolsVersion '21.1.2'
+
+                defaultConfig {
+                    minSdkVersion 9
+                    targetSdkVersion 21
+                }
+            }
+        }
+    }
+}
